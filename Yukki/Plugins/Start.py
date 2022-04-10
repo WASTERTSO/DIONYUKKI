@@ -78,7 +78,7 @@ async def welcome(_, message: Message):
             return
 
 
-@app.on_message(filters.command(["mhelp", "bukanstart"]) & filters.group)
+@app.on_message(filters.command("mhelp") & filters.group)
 @PermissionCheck
 async def useradd(_, message: Message):
     out = start_pannel()
@@ -91,7 +91,7 @@ async def useradd(_, message: Message):
     )
 
 
-@app.on_message(filters.command("mconfig") & filters.group)
+@app.on_message(filters.command("msettings") & filters.group)
 @PermissionCheck
 async def settings(_, message: Message):
     c_id = message.chat.id
