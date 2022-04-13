@@ -69,7 +69,7 @@ async def admins(_, message: Message):
         await music_off(chat_id)
         await pause_stream(chat_id)
         await message.reply_text(
-            f"🎧 Voicechat Paused by {message.from_user.mention}!"
+            f"⏸ **Voicechat Paused**\n│\n╰ Voicechat paused by {message.from_user.mention}!"
         )
     if message.command[0][1] == "e":
         if await is_music_playing(message.chat.id):
@@ -77,7 +77,7 @@ async def admins(_, message: Message):
         await music_on(chat_id)
         await resume_stream(chat_id)
         await message.reply_text(
-            f"🎧 Voicechat Resumed by {message.from_user.mention}!"
+            f"▶️ **Voicechat Resumed**\n│\n╰ Voicechat resumed by {message.from_user.mention}!"
         )
     if message.command[0][1] == "t" or message.command[0][1] == "n":
         if message.chat.id not in db_mem:
@@ -92,7 +92,7 @@ async def admins(_, message: Message):
         await remove_active_video_chat(chat_id)
         await stop_stream(chat_id)
         await message.reply_text(
-            f"🎧 Voicechat End/Stopped by {message.from_user.mention}!"
+            f"⏹ **Voicechat End/Stopped**__\n│\n╰ Voicechat End/Stopped by {message.from_user.mention}!"
         )
     if message.command[0][1] == "k":
         if message.chat.id not in db_mem:
