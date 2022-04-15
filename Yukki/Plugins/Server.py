@@ -44,7 +44,7 @@ XCB = [
 ]
 
 
-@app.on_message(filters.command("get_log") & filters.user(SUDOERS))
+@app.on_message(filters.command("mget_log") & filters.user(SUDOERS))
 async def log_(client, message):
     if await is_heroku():
         if HEROKU_API_KEY == "" and HEROKU_APP_NAME == "":
@@ -75,7 +75,7 @@ async def log_(client, message):
         return await message.reply_text(data)
 
 
-@app.on_message(filters.command("get_var") & filters.user(SUDOERS))
+@app.on_message(filters.command("mget_var") & filters.user(SUDOERS))
 async def varget_(client, message):
     usage = "**Usage:**\n/get_var [Var Name]"
     if len(message.command) != 2:
@@ -117,7 +117,7 @@ async def varget_(client, message):
             )
 
 
-@app.on_message(filters.command("del_var") & filters.user(SUDOERS))
+@app.on_message(filters.command("mdel_var") & filters.user(SUDOERS))
 async def vardel_(client, message):
     usage = "**Usage:**\n/del_var [Var Name]"
     if len(message.command) != 2:
@@ -160,7 +160,7 @@ async def vardel_(client, message):
             )
 
 
-@app.on_message(filters.command("set_var") & filters.user(SUDOERS))
+@app.on_message(filters.command("mset_var") & filters.user(SUDOERS))
 async def set_var(client, message):
     usage = "**Usage:**\n/set_var [Var Name] [Var Value]"
     if len(message.command) < 3:
@@ -352,7 +352,7 @@ async def update_(client, message):
     return
 
 
-@app.on_message(filters.command("restart") & filters.user(SUDOERS))
+@app.on_message(filters.command("mrestart") & filters.user(SUDOERS))
 async def restart_(_, message):
     response = await message.reply_text("Restarting....")
     if await is_heroku():
