@@ -22,17 +22,19 @@ def url_markup(videoid, duration, user_id, query, query_type):
                 callback_data=f"slider B|{query_type}|{query}|{user_id}",
             ),
             InlineKeyboardButton(
-                text="More",
+                text="🔎 More",
                 callback_data=f"Search {query}|{user_id}",
-            ),
-            InlineKeyboardButton(
-                text="Close",
-                callback_data=f"forceclose {query}|{user_id}",
             ),
             InlineKeyboardButton(
                 text="⇨",
                 callback_data=f"slider F|{query_type}|{query}|{user_id}",
             ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="🗑 Close Menu",
+                callback_data=f"forceclose {query}|{user_id}",
+            )
         ],
     ]
     return buttons
