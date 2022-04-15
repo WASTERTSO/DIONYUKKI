@@ -77,7 +77,7 @@ __HELP__ = f"""
 # Add Sudo Users!
 
 
-@app.on_message(filters.command("addsudo") & filters.user(OWNER_ID))
+@app.on_message(filters.command("maddsudo") & filters.user(OWNER_ID))
 async def useradd(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
@@ -117,7 +117,7 @@ async def useradd(_, message: Message):
     return
 
 
-@app.on_message(filters.command("delsudo") & filters.user(OWNER_ID))
+@app.on_message(filters.command("mdelsudo") & filters.user(OWNER_ID))
 async def userdel(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
@@ -156,7 +156,7 @@ async def userdel(_, message: Message):
     await message.reply_text(f"Something wrong happened.")
 
 
-@app.on_message(filters.command("sudolist"))
+@app.on_message(filters.command("msudolist"))
 async def sudoers_list(_, message: Message):
     sudoers = await get_sudoers()
     text = "⭐️<u> **Owners:**</u>\n"
@@ -239,7 +239,7 @@ async def maintenance(_, message):
 ## Logger
 
 
-@app.on_message(filters.command("logger") & filters.user(SUDOERS))
+@app.on_message(filters.command("mlogger") & filters.user(SUDOERS))
 async def logger(_, message):
     if LOG_SESSION == "None":
         return await message.reply_text(
